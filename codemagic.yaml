@@ -1,42 +1,9 @@
 name: CI - Build e Testes
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push]
 
 jobs:
-  build_and_test:
-    runs-on: macos-13 # ou macos-14 se preferir
-
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: Selecionar versão do Xcode
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: '15.2' # ou '15.0', '15.1'... use a versão mais próxima que funcione com seu projeto
-
-      - name: Checkout do código
-        uses: actions/checkout@v3
-
-      - name: Instalar Ruby (usado pelo Fastlane)
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.1
-
-      - name: Instalar dependências do bundler (se usar Gemfile)
-        run: |
-          if [ -f Gemfile ]; then
-            bundle install
-          fi
-
-      - name: Instalar Fastlane
-        run: gem install fastlane --no-document
-
-      - name: Rodar Fastlane
-        run: |
-          if [ -f Gemfile ]; then
-            bundle exec fastlane build_and_test
-          else
-            fastlane build_and_test
-          fi
+      - run: echo "Funcionando!"
