@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: macos-latest
+    runs-on: macos-13 # ou macos-latest
 
     steps:
       - name: Checkout repository
@@ -17,8 +17,8 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
 
-      - name: Select Xcode 16
-        run: sudo xcode-select -s /Applications/Xcode_16.app # Adjust path if needed
+      - name: Select Xcode 15.2
+        run: sudo xcode-select -s /Applications/Xcode_15.2.app
 
       - name: Build project
         run: |
@@ -32,6 +32,6 @@ jobs:
         run: |
           xcodebuild \
             -project GalaxyMovies.xcodeproj \
-            -scheme GalaxyMoviesTests # Ensure this is the correct test scheme
+            -scheme GalaxyMovies \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
             test
