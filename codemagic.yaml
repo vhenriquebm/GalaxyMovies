@@ -11,6 +11,10 @@ workflows:
       - name: Instalar dependências
         script: |
           bundle install || gem install bundler && bundle install
+      - name: Mostrar conteúdo do project.pbxproj
+        script: |
+          echo "Conteúdo de GalaxyMovies.xcodeproj/project.pbxproj:"
+          cat GalaxyMovies.xcodeproj/project.pbxproj
       - name: Rodar Fastlane
         script: |
           bundle exec fastlane build_and_test || fastlane build_and_test
