@@ -46,9 +46,6 @@ jobs:
       - name: Install CocoaPods
         run: gem install cocoapods -N --no-document
 
-      - name: Pod Install
-        run: pod install --repo-update
-
       - name: Build project
         run: |
           xcodebuild \
