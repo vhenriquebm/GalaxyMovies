@@ -1,0 +1,9 @@
+desc "Build e executa os testes do projeto GalaxyMovies"
+lane :build_and_test do
+  run_tests(
+    scheme: "GalaxyMovies",
+    build_for_testing: true
+  )
+end
+
+

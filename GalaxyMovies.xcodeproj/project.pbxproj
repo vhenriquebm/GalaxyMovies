@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4285B0322DA727EE00EECE82 /* Appfile in Resources */ = {isa = PBXBuildFile; fileRef = 4285B02F2DA727EE00EECE82 /* Appfile */; };
+		4285B0332DA727EE00EECE82 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 4285B0302DA727EE00EECE82 /* Fastfile */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		42C577652DA6C1F900339D92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4285B02F2DA727EE00EECE82 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
+		4285B0302DA727EE00EECE82 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
 		42C577542DA6C1F600339D92 /* GalaxyMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalaxyMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C577642DA6C1F900339D92 /* GalaxyMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalaxyMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C5776E2DA6C1F900339D92 /* GalaxyMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalaxyMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,9 +79,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4285B0312DA727EE00EECE82 /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				4285B02F2DA727EE00EECE82 /* Appfile */,
+				4285B0302DA727EE00EECE82 /* Fastfile */,
+			);
+			path = fastlane;
+			sourceTree = "<group>";
+		};
 		42C5774B2DA6C1F600339D92 = {
 			isa = PBXGroup;
 			children = (
+				4285B0312DA727EE00EECE82 /* fastlane */,
 				42C577562DA6C1F600339D92 /* GalaxyMovies */,
 				42C577672DA6C1F900339D92 /* GalaxyMoviesTests */,
 				42C577712DA6C1F900339D92 /* GalaxyMoviesUITests */,
@@ -212,6 +229,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4285B0322DA727EE00EECE82 /* Appfile in Resources */,
+				4285B0332DA727EE00EECE82 /* Fastfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

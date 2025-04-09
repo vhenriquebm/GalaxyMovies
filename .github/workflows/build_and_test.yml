@@ -1,37 +1,34 @@
-name: Build & Test iOS
+name: CI - Build e Testes
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-  build-and-test:
-    runs-on: macos-13 # ou macos-latest
+  build_and_test:
+    runs-on: macos-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: Show Xcode version
-        run: xcodebuild -version
+      - name: Instalar Ruby (usado pelo Fastlane)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1 # ou a versão que você usa localmente
 
-      - name: Select Xcode 15.2
-        run: sudo xcode-select -s /Applications/Xcode_15.2.app
+      - name: Instalar dependências do bundler (se usar Gemfile)
+        run: bundle install
+        if: exists('Gemfile')
 
-      - name: Build project
+      - name: Instalar Fastlane
         run: |
-          xcodebuild \
-            -project GalaxyMovies.xcodeproj \
-            -scheme GalaxyMovies \
-            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
-            clean build
+          gem install fastlane --no-document
+        if: steps.bundle.outputs.cache-hit != 'true'
 
-      - name: Run tests
-        run: |
-          xcodebuild \
-            -project GalaxyMovies.xcodeproj \
-            -scheme GalaxyMovies \
-            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
-            test
+      - name: Rodar Fastlane
+        run: bundle exec fastlane build_and_test
+        # ou, se não usar bundler:
+        # run: fastlane build_and_test
