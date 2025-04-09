@@ -17,18 +17,22 @@ jobs:
       - name: Instalar Ruby (usado pelo Fastlane)
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1 # ou a versão que você usa localmente
+          ruby-version: 3.1 # Altere se necessário
 
       - name: Instalar dependências do bundler (se usar Gemfile)
-        run: bundle install
-        if: exists('Gemfile')
+        run: |
+          if [ -f Gemfile ]; then
+            bundle install
+          fi
 
       - name: Instalar Fastlane
         run: |
           gem install fastlane --no-document
-        if: steps.bundle.outputs.cache-hit != 'true'
 
       - name: Rodar Fastlane
-        run: bundle exec fastlane build_and_test
-        # ou, se não usar bundler:
-        # run: fastlane build_and_test
+        run: |
+          if [ -f Gemfile ]; then
+            bundle exec fastlane build_and_test
+          else
+            fastlane build_and_test
+          fi
