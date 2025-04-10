@@ -1,0 +1,36 @@
+name: CI - Build e Testes
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build_and_test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Instalar Ruby (usado pelo Fastlane)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1 # Altere se necessário
+
+      - name: Instalar dependências do bundler (se usar Gemfile)
+        run: |
+          if [ -f Gemfile ]; then
+            bundle install
+          fi
+      - name: Instalar Fastlane
+        run: |
+          gem install fastlane --no-document
+      - name: Rodar Fastlane
+        run: |
+          if [ -f Gemfile ]; then
+            bundle exec fastlane build_and_test
+          else
+            fastlane build_and_test
+          fi
