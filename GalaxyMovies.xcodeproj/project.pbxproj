@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,21 +37,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		42C577562DA6C1F600339D92 /* GalaxyMovies */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GalaxyMovies;
-			sourceTree = "<group>";
-		};
-		42C577672DA6C1F900339D92 /* GalaxyMoviesTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GalaxyMoviesTests;
-			sourceTree = "<group>";
-		};
-		42C577712DA6C1F900339D92 /* GalaxyMoviesUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GalaxyMoviesUITests;
-			sourceTree = "<group>";
-		};
+		42C577562DA6C1F600339D92 /* GalaxyMovies */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GalaxyMovies; sourceTree = "<group>"; };
+		42C577672DA6C1F900339D92 /* GalaxyMoviesTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GalaxyMoviesTests; sourceTree = "<group>"; };
+		42C577712DA6C1F900339D92 /* GalaxyMoviesUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GalaxyMoviesUITests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +192,7 @@
 				};
 			};
 			buildConfigurationList = 42C5774F2DA6C1F600339D92 /* Build configuration list for PBXProject "GalaxyMovies" */;
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -212,7 +201,6 @@
 			);
 			mainGroup = 42C5774B2DA6C1F600339D92;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 42C577552DA6C1F600339D92 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
